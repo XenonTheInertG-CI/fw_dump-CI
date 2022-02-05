@@ -21,7 +21,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/sushrut1101/docker:latest
+      image: ghcr.io/xenontheinertg/docky:latest
 
     steps:
        - name: Checkouts
