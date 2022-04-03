@@ -21,25 +21,25 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/xenontheinertg/docky:latest
+      image: xenontheinertg/docky:latest
 
     steps:
        - name: Checkouts
          uses: actions/checkout@v2
 
-       - name: Clone Dumpyara
+       - name: Clone DumprX
          run: |
-              git clone https://github.com/Xenon-s-Workshop/firmware_dumper
+              git clone https://github.com/DumprX/DumprX
 
-       - name: Setup Dumpyara environment
-         working-directory: firmware_dumper
+       - name: Setup DumprX environment
+         working-directory: DumprX
          run: |
               sudo bash setup.sh
               git config --global user.name "XenonTheInertG"
               git config --global user.email "xenontheinertg@outlook.com"
 
        - name: Setup config envs
-         working-directory: firmware_dumper
+         working-directory: DumprX
          run: |
               echo "${{ secrets.GIT_TOKEN }}" > .github_token
               echo "${{ secrets.GIT_ORG_NAME }}" > .github_orgname
@@ -47,11 +47,11 @@ jobs:
               echo "${{ secrets.CHAT_ID }}" > .tg_chat
 
        - name: Run the Extra Command
-         working-directory: firmware_dumper
+         working-directory: DumprX
          run: |
               $EXTRA_CMD
 
-       - name: Running Dumpyara
-         working-directory: firmware_dumper
+       - name: Running DumprX
+         working-directory: DumprX
          run: |
-              ./dump.sh "$ROM_URL"
+              ./dumper.sh "$ROM_URL"
