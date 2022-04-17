@@ -18,7 +18,7 @@ env:
   EXTRA_CMD: ${{ github.event.inputs.EXTRA_CMD }}
 
 jobs:
-  build:
+  dump:
     runs-on: ubuntu-latest
     container:
       image: xenontheinertg/docky:latest
